@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="晨光手作咖啡，日式暖心微醺。在木質小窩裡，享受純粹香氣與甜點時光。"
+  />
+  <meta property="og:title" content="晨光手作咖啡｜日式暖心微醺" />
+  <meta
+    property="og:description"
+    content="在巷弄裡，從一杯手沖咖啡開始，品味日式手作甜點與慢活氛圍。"
+  />
+  <meta
+    property="og:image"
+    content="https://images.unsplash.com/photo-1511920170033-f8396924c348?auto=format&fit=crop&w=1200&q=80"
+  />
+  <meta property="og:type" content="website" />
+  <title>晨光手作咖啡｜日式暖心微醺</title>
+  <style>
+    /* CSS:GLOBAL-START */
+    :root {
+      color-scheme: light;
+      font-family: "Noto Sans TC", "PingFang TC", "Helvetica Neue", Arial,
+        sans-serif;
+      background: #f7f2ec;
+      color: #4a3f35;
+    }
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      line-height: 1.6;
+      background: #f7f2ec;
+    }
+    img {
+      max-width: 100%;
+      display: block;
+    }
+    button,
+    input,
+    textarea {
+      font: inherit;
+    }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+    .page-wrapper {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.2rem 3rem;
+    }
+    .section-title {
+      margin: 0 0 1rem;
+      font-size: clamp(1.8rem, 2.2vw, 2.5rem);
+      letter-spacing: 0.03em;
+      color: #3e3329;
+    }
+    .section-subtitle {
+      margin: 0;
+      color: #7b6b5d;
+      max-width: 46rem;
+    }
+    .content-grid {
+      display: grid;
+      gap: 1.6rem;
+    }
+    .shadow-card {
+      background: rgba(255, 255, 255, 0.92);
+      border: 1px solid rgba(160, 131, 99, 0.16);
+      border-radius: 2rem;
+      box-shadow: 0 24px 60px rgba(132, 104, 84, 0.08);
+    }
+    .text-accent {
+      color: #a57a63;
+    }
+    .badge {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      border-radius: 999px;
+      background: #f3e7dc;
+      color: #8f6f54;
+      font-size: 0.95rem;
+      margin-bottom: 1rem;
+    }
+    /* CSS:GLOBAL-END */
+
+    /* CSS:HEADER-START */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(247, 242, 236, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(160, 131, 99, 0.14);
+    }
+    .nav-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 1rem 1.2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .brand-name {
+      font-size: 1.1rem;
+      letter-spacing: 0.08em;
+      font-weight: 700;
+    }
+    .brand-name span {
+      display: block;
+      font-size: 0.9rem;
+      color: #7b6b5d;
+      font-weight: 400;
+    }
+    .nav-menu {
+      display: flex;
+      gap: 1.2rem;
+      align-items: center;
+    }
+    .nav-link {
+      color: #4a3f35;
+      font-weight: 500;
+    }
+    .nav-toggle {
+      display: none;
+      border: none;
+      background: #f5ece3;
+      color: #8f6f54;
+      font-size: 1.4rem;
+      width: 3rem;
+      height: 3rem;
+      border-radius: 50%;
+      cursor: pointer;
+      box-shadow: 0 10px 24px rgba(152, 113, 80, 0.12);
+    }
+    .nav-toggle::before {
+      content: "🍰";
+    }
+    @media (max-width: 860px) {
+      .nav-menu {
+        position: absolute;
+        top: 100%;
+        right: 1.2rem;
+        left: 1.2rem;
+        padding: 1.2rem;
+        flex-direction: column;
+        background: rgba(255, 255, 255, 0.98);
+        border: 1px solid rgba(160, 131, 99, 0.18);
+        border-radius: 1.5rem;
+        transform: translateY(-20px);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.25s ease, transform 0.25s ease;
+      }
+      .site-header.nav-open .nav-menu {
+        transform: translateY(0);
+        opacity: 1;
+        pointer-events: auto;
+      }
+      .nav-toggle {
+        display: inline-flex;
+      }
+    }
+    /* CSS:HEADER-END */
+
+    /* CSS:HERO-START */
+    .hero-section {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      align-items: center;
+      justify-items: center;
+      padding: 3.5rem 0 2.5rem;
+    }
+    .hero-copy {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      align-items: center;
+      justify-items: center;
+      max-width: 90vw;
+    }
+    .hero-header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      justify-content: center;
+      width: fit-content;
+      flex-wrap: wrap;
+    }
+    .hero-copy h1 {
+      font-size: clamp(2.8rem, 4vw, 4.2rem);
+      margin: 0;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      white-space: normal;
+      text-align: center;
+    }
+    .hero-text {
+      color: #5c4f44;
+      text-align: center;
+      max-width: 50rem;
+    }
+    .hero-cta {
+      border: none;
+      background: #a57a63;
+      color: #fff;
+      padding: 1rem 1.6rem;
+      border-radius: 999px;
+      cursor: pointer;
+      width: fit-content;
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+    .hero-cta:hover {
+      transform: translateY(-2px);
+      background: #8f6147;
+    }
+    .hero-media {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      max-width: 100vw;
+      overflow: hidden;
+      border-radius: 2rem;
+      box-shadow: 0 28px 60px rgba(132, 104, 84, 0.12);
+    }
+    .hero-media img {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      max-width: min(calc(4vw + 42rem), 90vw);
+    }
+    .badge {
+      display: inline-flex;
+      position: relative;
+      padding: 0.95rem 1.3rem;
+      border-radius: 999px;
+      background: #f3e7dc;
+      color: #8f6f54;
+      font-size: 0.95rem;
+      margin: 0;
+      white-space: nowrap;
+      flex-shrink: 0;
+      width: 100%;
+      justify-content: center;
+    }
+    .badge::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      left: 0;
+      right: 0;
+      background: #f3e7dc;
+      border-radius: 999px;
+      z-index: -1;
+    }
+    /* CSS:HERO-END */
+
+    /* CSS:ABOUT-START */
+    .about-section {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      align-items: center;
+      padding: 2rem 0;
+    }
+    .about-card {
+      padding: 4rem 2.5rem;
+      border-radius: 2rem;
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 1rem;
+      overflow: visible;
+      position: relative;
+      min-height: 400px;
+      box-shadow: 0 20px 50px rgba(132, 104, 84, 0.1);
+    }
+    .about-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(255, 255, 255, 0.75);
+      border-radius: 2rem;
+      z-index: 0;
+      pointer-events: none;
+      box-shadow: inset 0 0 30px rgba(255, 255, 255, 0.3);
+    }
+    .about-card > * {
+      position: relative;
+      z-index: 1;
+    }
+    .about-card .badge {
+      position: absolute;
+      top: -20px;
+      left: 2.5rem;
+      margin: 0;
+      z-index: 2;
+    }
+    .about-card .section-title {
+      font-size: clamp(1.8rem, 2.2vw, 2.5rem);
+      margin: 0 0 1rem 0;
+      color: #3e3329;
+    }
+    .about-card .section-subtitle {
+      font-size: 1rem;
+      line-height: 1.8;
+      margin: 0;
+      color: #5c4f44;
+      max-width: 100%;
+    }
+    .about-card:nth-child(2) {
+      display: none;
+    }
+    /* CSS:ABOUT-END */
+
+    /* CSS:SKILLS-START */
+    .skills-section {
+      padding: 2rem 0;
+    }
+    .skills-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.4rem;
+    }
+    .skill-card {
+      padding: 1.8rem;
+      border-radius: 1.8rem;
+      background: #fffdf8;
+      border: 1px solid rgba(160, 131, 99, 0.16);
+    }
+    .skill-card h3 {
+      margin-top: 0;
+      margin-bottom: 0.8rem;
+      font-size: 1.2rem;
+    }
+    .skill-card p {
+      margin: 0;
+      color: #6d5d51;
+    }
+    /* CSS:SKILLS-END */
+
+    /* CSS:PROJECTS-START */
+    .projects-section {
+      padding: 2rem 0;
+    }
+    .projects-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.4rem;
+    }
+    .project-card {
+      overflow: hidden;
+      border-radius: 2rem;
+      background: #fff;
+      border: 1px solid rgba(160, 131, 99, 0.16);
+      box-shadow: 0 16px 36px rgba(132, 104, 84, 0.08);
+    }
+    .project-image {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+    .project-content {
+      padding: 1.4rem;
+    }
+    .project-content h3 {
+      margin: 0 0 0.8rem;
+      font-size: 1.2rem;
+    }
+    .project-content p {
+      margin: 0;
+      color: #6d5d51;
+    }
+    /* CSS:PROJECTS-END */
+
+    /* CSS:CONTACT-START */
+    .contact-section {
+      padding: 2rem 0;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 2rem;
+    }
+    .contact-card {
+      padding: 2rem;
+      border-radius: 2rem;
+      background: #fff;
+      border: 1px solid rgba(160, 131, 99, 0.16);
+    }
+    .contact-card h3 {
+      margin-top: 0;
+    }
+    .contact-list {
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+      display: grid;
+      gap: 0.8rem;
+    }
+    .contact-list li {
+      color: #5f4d42;
+    }
+    .order-form {
+      display: grid;
+      gap: 1rem;
+    }
+    .form-group {
+      display: grid;
+      gap: 0.6rem;
+    }
+    .form-label {
+      font-weight: 600;
+      color: #5a4738;
+    }
+    .form-input,
+    .form-textarea {
+      width: 100%;
+      border-radius: 1rem;
+      border: 1px solid rgba(160, 131, 99, 0.2);
+      background: #f6f0e8;
+      padding: 1rem 1rem;
+      color: #4a3f35;
+      resize: vertical;
+    }
+    .form-textarea {
+      min-height: 140px;
+    }
+    .form-submit {
+      width: fit-content;
+      border: none;
+      background: #d29a79;
+      color: #fff;
+      padding: 1rem 1.6rem;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+    .form-submit:hover {
+      background: #b37f61;
+    }
+    .feedback-message {
+      display: none;
+      padding: 0.8rem 1rem;
+      border-radius: 1rem;
+      background: #f9e4d5;
+      color: #7f5a47;
+    }
+    .feedback-message.active {
+      display: block;
+    }
+    /* CSS:CONTACT-END */
+
+    /* CSS:FOOTER-START */
+    .footer {
+      text-align: center;
+      padding: 2rem 0 1rem;
+      color: #7b6b5d;
+      font-size: 0.95rem;
+    }
+    .back-to-top {
+      position: fixed;
+      right: 1.2rem;
+      bottom: 1.2rem;
+      border: none;
+      border-radius: 50%;
+      width: 3.5rem;
+      height: 3.5rem;
+      display: grid;
+      place-items: center;
+      background: #fff;
+      color: #8f6f54;
+      box-shadow: 0 18px 30px rgba(132, 104, 84, 0.16);
+      cursor: pointer;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s ease;
+    }
+    .back-to-top.visible {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    @media (max-width: 860px) {
+      .hero-section,
+      .about-section,
+      .contact-section {
+        grid-template-columns: 1fr;
+      }
+      .projects-grid,
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+      .nav-menu {
+        width: calc(100% - 2.4rem);
+      }
+      .site-header.nav-open .nav-menu {
+        transform: translateY(0);
+      }
+    }
+    @media (max-width: 560px) {
+      .page-wrapper {
+        padding: 0 1rem 2rem;
+      }
+      .hero-copy h1 {
+        font-size: 2.8rem;
+      }
+    }
+    /* CSS:FOOTER-END */
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="nav-bar">
+      <div class="brand-name">
+        Morning Coffee
+        <span>日式手作咖啡</span>
+      </div>
+      <button class="nav-toggle" aria-label="開啟選單"></button>
+      <nav class="nav-menu" aria-label="主選單">
+        <a class="nav-link" href="#hero">首頁</a>
+        <a class="nav-link" href="#about">關於</a>
+        <a class="nav-link" href="#menu">飲品</a>
+        <a class="nav-link" href="#specials">餐點</a>
+        <a class="nav-link" href="#contact">預訂</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page-wrapper">
+    <!-- SECTION:HERO-START -->
+    <section class="hero-section" id="hero">
+      <div class="hero-copy">
+        <div class="hero-header">
+          <h1>晨光手作咖啡，日式暖心微醺</h1>
+          <span class="badge">日式手作風</span>
+        </div>
+        <div class="hero-media">
+          <img
+            src="https://images.unsplash.com/photo-1511920170033-f8396924c348?auto=format&fit=crop&w=900&q=80"
+            alt="日式咖啡與甜點"
+          />
+        </div>
+        <p class="hero-text">
+          在木質小窩裡，享受純粹香氣與甜點時光
+        </p>
+        <button class="hero-cta">立即預訂席位</button>
+      </div>
+    </section>
+    <!-- SECTION:HERO-END -->
+
+    <!-- SECTION:ABOUT-START -->
+    <section class="about-section" id="about">
+      <div class="about-card" style="background-image: url('https://images.unsplash.com/photo-1495521821757-a1efb6729352?auto=format&fit=crop&w=1200&q=80');">
+        <span class="badge">About</span>
+        <h2 class="section-title">關於我們</h2>
+        <p class="section-subtitle">
+          從一杯手沖咖啡開始，我們在巷弄裡打造一處日式暖心的小窩。嚴選小農咖啡豆、手工甜點，搭配溫暖的木質空間，邀請你來享受每一刻慢活時光。
+        </p>
+      </div>
+    </section>
+    <!-- SECTION:ABOUT-END -->
+
+    <!-- SECTION:SKILLS-START -->
+    <section class="skills-section" id="menu">
+      <div class="section-header">
+        <h2 class="section-title">主打飲品</h2>
+        <p class="section-subtitle">
+          精選 3 款日式風味咖啡，為你帶來溫柔又細緻的味蕾體驗。
+        </p>
+      </div>
+      <div class="content-grid skills-grid">
+        <article class="skill-card">
+          <h3>日式手沖單品</h3>
+          <p>選用淺焙小農豆，細膩香氣帶出花果調，輕輕揭開晨光的第一杯滋味。</p>
+        </article>
+        <article class="skill-card">
+          <h3>芝麻拿鐵</h3>
+          <p>濃郁芝麻香融入柔和鮮奶，口感溫潤，細膩香甜讓人回味無窮。</p>
+        </article>
+        <article class="skill-card">
+          <h3>抹茶卡布其諾</h3>
+          <p>微苦抹茶與細膩奶泡完美平衡，帶出日式茶香與咖啡的和諧交織。</p>
+        </article>
+      </div>
+    </section>
+    <!-- SECTION:SKILLS-END -->
+
+    <!-- SECTION:PROJECTS-START -->
+    <section class="projects-section" id="specials">
+      <div class="section-header">
+        <h2 class="section-title">代表餐點</h2>
+        <p class="section-subtitle">
+          精選三款甜點餐點，搭配咖啡一起品味最溫柔的午後時光。
+        </p>
+      </div>
+      <div class="content-grid projects-grid">
+        <article class="project-card">
+          <img
+            class="project-image"
+            src="https://images.unsplash.com/photo-1518146420497-6b28c5acd2dd?auto=format&fit=crop&w=900&q=80"
+            alt="和風紅豆鬆餅"
+          />
+          <div class="project-content">
+            <h3>和風紅豆鬆餅</h3>
+            <p>外酥內軟，搭配手工抹茶醬與北海道牛奶冰淇淋，甜而不膩。</p>
+          </div>
+        </article>
+        <article class="project-card">
+          <img
+            class="project-image"
+            src="https://images.unsplash.com/photo-1484723091739-30a097e8f929?auto=format&fit=crop&w=900&q=80"
+            alt="米糰咖啡布丁"
+          />
+          <div class="project-content">
+            <h3>米糰咖啡布丁</h3>
+            <p>綿密布丁與醇厚咖啡交織，每口都是日式甜點感的細緻饗宴。</p>
+          </div>
+        </article>
+        <article class="project-card">
+          <img
+            class="project-image"
+            src="https://images.unsplash.com/photo-1519682337058-a94d519337bc?auto=format&fit=crop&w=900&q=80"
+            alt="栗子蛋糕捲"
+          />
+          <div class="project-content">
+            <h3>栗子蛋糕捲</h3>
+            <p>香甜栗子泥包裹輕盈蛋糕，柔軟口感適合午後慢時光。</p>
+          </div>
+        </article>
+      </div>
+    </section>
+    <!-- SECTION:PROJECTS-END -->
+
+    <!-- SECTION:CONTACT-START -->
+    <section class="contact-section" id="contact">
+      <div class="contact-card">
+        <span class="badge">Contact</span>
+        <h2 class="section-title">預訂 & 聯絡</h2>
+        <p class="section-subtitle">
+          填寫下方訂購表單，我們會盡快回覆你的甜點與咖啡預約需求。
+        </p>
+        <ul class="contact-list">
+          <li>電話 02-1234-5678</li>
+          <li>地址 台北市某某區</li>
+          <li>營業時間 09:00–18:00</li>
+          <li>Instagram @morning.coffee</li>
+        </ul>
+      </div>
+      <form class="order-form" novalidate>
+        <div class="form-group">
+          <label class="form-label" for="name">姓名</label>
+          <input
+            class="form-input"
+            type="text"
+            name="name"
+            id="name"
+            placeholder="請輸入姓名"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="phone">電話</label>
+          <input
+            class="form-input"
+            type="tel"
+            name="phone"
+            id="phone"
+            placeholder="請輸入連絡電話"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="email">電子郵件</label>
+          <input
+            class="form-input"
+            type="email"
+            name="email"
+            id="email"
+            placeholder="請輸入電子郵件"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="order">訂購內容</label>
+          <textarea
+            class="form-textarea"
+            name="order"
+            id="order"
+            placeholder="請輸入想訂購的咖啡、甜點或備註"
+            required
+          ></textarea>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="note">備註</label>
+          <textarea
+            class="form-textarea"
+            name="note"
+            id="note"
+            placeholder="可填寫特別需求或到店時間"
+          ></textarea>
+        </div>
+        <p class="feedback-message" aria-live="polite"></p>
+        <button class="form-submit" type="submit">送出預訂</button>
+      </form>
+    </section>
+    <!-- SECTION:CONTACT-END -->
+  </main>
+
+  <footer class="footer">
+    © 2026 Morning Coffee。日式手作咖啡的慢活時光。
+  </footer>
+
+  <button class="back-to-top" type="button" aria-label="回到頂部">↑</button>
+
+  <script>
+    /* JS:GLOBAL-START */
+    const header = document.querySelector(".site-header");
+    const navToggle = document.querySelector(".nav-toggle");
+    const navLinks = document.querySelectorAll(".nav-link");
+    const heroCta = document.querySelector(".hero-cta");
+    const contactSection = document.querySelector(".contact-section");
+    const orderForm = document.querySelector(".order-form");
+    const feedbackMessage = document.querySelector(".feedback-message");
+    const backToTop = document.querySelector(".back-to-top");
+    /* JS:GLOBAL-END */
+
+    /* JS:HEADER-START */
+    navToggle.addEventListener("click", () => {
+      header.classList.toggle("nav-open");
+      const expanded = header.classList.contains("nav-open");
+      navToggle.setAttribute("aria-expanded", expanded.toString());
+    });
+
+    navLinks.forEach((link) => {
+      link.addEventListener("click", (event) => {
+        event.preventDefault();
+        const targetId = link.getAttribute("href");
+        const targetSection = document.querySelector(targetId);
+        if (targetSection) {
+          targetSection.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+        header.classList.remove("nav-open");
+        navToggle.setAttribute("aria-expanded", "false");
+      });
+    });
+    /* JS:HEADER-END */
+
+    /* JS:HERO-START */
+    heroCta.addEventListener("click", () => {
+      contactSection.scrollIntoView({ behavior: "smooth", block: "start" });
+      header.classList.remove("nav-open");
+      navToggle.setAttribute("aria-expanded", "false");
+    });
+    /* JS:HERO-END */
+
+    /* JS:CONTACT-START */
+    orderForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+      const requiredFields = Array.from(
+        orderForm.querySelectorAll("[required]")
+      );
+      const invalidField = requiredFields.find(
+        (field) => !field.value.trim()
+      );
+
+      if (invalidField) {
+        feedbackMessage.textContent = "請完整填寫姓名、電話、電子郵件與訂購內容。";
+        feedbackMessage.classList.add("active");
+        invalidField.focus();
+        return;
+      }
+
+      feedbackMessage.textContent =
+        "感謝您的預訂！我們已收到您的訊息，會盡快與您聯繫。";
+      feedbackMessage.classList.add("active");
+      orderForm.reset();
+    });
+    /* JS:CONTACT-END */
+
+    /* JS:BACKTOTOP-START */
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 240) {
+        backToTop.classList.add("visible");
+      } else {
+        backToTop.classList.remove("visible");
+      }
+    });
+
+    backToTop.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+    /* JS:BACKTOTOP-END */
+  </script>
+</body>
+</html>
