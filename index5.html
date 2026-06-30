@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>精選咖啡商品</title>
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+
+        body{
+            font-family:"Microsoft JhengHei",sans-serif;
+            background:#f5f5f5;
+            padding:60px;
+        }
+
+        section{
+            max-width:1200px;
+            margin:auto;
+        }
+
+        h2{
+            text-align:center;
+            margin-bottom:40px;
+            font-size:36px;
+            color:#5a3825;
+        }
+
+        /* 商品列表 */
+        .product-list{
+            display:flex;
+            flex-wrap:wrap;
+            justify-content:center;
+            gap:30px;
+        }
+
+        /* 每張卡片：一列3個 */
+        .card{
+            width: calc((100% - 60px) / 3);
+            min-width: 280px;
+            background:#fff;
+            border-radius:12px;
+            overflow:hidden;
+            box-shadow:0 4px 12px rgba(0,0,0,.15);
+            transition:.3s;
+        }
+
+        .card:hover{
+            transform:translateY(-8px);
+        }
+
+        .card img{
+            width:100%;
+            height:220px;
+            object-fit:cover;
+        }
+
+        .card-content{
+            padding:20px;
+        }
+
+        .card h3{
+            margin-bottom:10px;
+            color:#333;
+        }
+
+        .card p{
+            color:#666;
+            line-height:1.6;
+            margin-bottom:15px;
+        }
+
+        .price{
+            font-size:22px;
+            color:#8B4513;
+            font-weight:bold;
+            margin-bottom:15px;
+        }
+
+        button{
+            width:100%;
+            padding:12px;
+            border:none;
+            background:#8B4513;
+            color:#fff;
+            font-size:16px;
+            border-radius:8px;
+            cursor:pointer;
+            transition:.3s;
+        }
+
+        button:hover{
+            background:#6b3410;
+        }
+    </style>
+</head>
+
+<body>
+
+<section>
+    <h2>☕ 精選咖啡商品</h2>
+
+    <div class="product-list">
+
+        <article class="card">
+            <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=600" alt="美式咖啡">
+            <div class="card-content">
+                <h3>經典美式咖啡</h3>
+                <p>清爽順口、香氣均衡，是每日必備的基礎咖啡。</p>
+                <div class="price">NT$120</div>
+                <button>立即購買</button>
+            </div>
+        </article>
+
+        <article class="card">
+            <img src="https://images.unsplash.com/photo-1517701604599-bb29b565090c?w=600" alt="拿鐵咖啡">
+            <div class="card-content">
+                <h3>香濃拿鐵</h3>
+                <p>濃縮咖啡與鮮奶融合，口感柔順滑潤。</p>
+                <div class="price">NT$150</div>
+                <button>立即購買</button>
+            </div>
+        </article>
+
+        <article class="card">
+            <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=600" alt="卡布奇諾">
+            <div class="card-content">
+                <h3>卡布奇諾</h3>
+                <p>濃縮咖啡搭配厚實奶泡，風味濃郁平衡。</p>
+                <div class="price">NT$160</div>
+                <button>立即購買</button>
+            </div>
+        </article>
+
+        <article class="card">
+            <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=600" alt="摩卡咖啡">
+            <div class="card-content">
+                <h3>摩卡咖啡</h3>
+                <p>結合巧克力與咖啡的甜香層次風味。</p>
+                <div class="price">NT$170</div>
+                <button>立即購買</button>
+            </div>
+        </article>
+
+        <article class="card">
+            <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?w=600" alt="焦糖瑪奇朵">
+            <div class="card-content">
+                <h3>焦糖瑪奇朵</h3>
+                <p>香甜焦糖與奶香交織，層次豐富。</p>
+                <div class="price">NT$180</div>
+                <button>立即購買</button>
+            </div>
+        </article>
+
+        <article class="card">
+            <img src="https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=600" alt="冰滴咖啡">
+            <div class="card-content">
+                <h3>冰滴咖啡</h3>
+                <p>低溫慢萃製作，口感乾淨且餘韻悠長。</p>
+                <div class="price">NT$190</div>
+                <button>立即購買</button>
+            </div>
+        </article>
+
+    </div>
+</section>
+
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yuzu Cafe</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Microsoft JhengHei", sans-serif;
+        }
+
+        /* 導覽列 */
+        header {
+            background-color: #ffffff;
+            border-bottom: 1px solid #ddd;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 40px;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* 左側 Logo */
+        .logo a {
+            text-decoration: none;
+            font-size: 28px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        /* 右側選單 */
+        .menu {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .menu a {
+            text-decoration: none;
+            color: #333;
+            font-size: 18px;
+            transition: color .3s;
+        }
+
+        .menu a:hover {
+            color: #ff8c42;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <nav>
+            <!-- 左側 -->
+            <div class="logo">
+                <a href="#">Yuzu Cafe</a>
+            </div>
+
+            <!-- 右側 -->
+            <ul class="menu">
+                <li><a href="#about">關於我們</a></li>
+                <li><a href="#menu">美味菜單</a></li>
+            </ul>
+        </nav>
+    </header>
+
+</body>
+</html>
